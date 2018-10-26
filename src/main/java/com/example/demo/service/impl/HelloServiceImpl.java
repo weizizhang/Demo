@@ -9,7 +9,7 @@ import com.example.demo.service.HelloService;
 public class HelloServiceImpl implements HelloService {
 
 	@Override
-	@Cacheable(value="neoCache")
+	@Cacheable(value="users")
 	public Neo getNeo(String id) {
 //		Neo n = getData();
 //		return n;
