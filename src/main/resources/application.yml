@@ -2,7 +2,7 @@ com:
  neo:
   title: 纯洁的微笑
   description: 分享生活和技术
-ehcache:
+EhCache:
   caches:
     - name: userCache #缓存名称
       eternal: false #是否永不过期 默认false 如果为false那么还要根据timeToIdleSeconds，timeToLiveSeconds判断。
