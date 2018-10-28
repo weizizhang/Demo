@@ -1,15 +1,16 @@
-package com.example.demo.service.impl;
+package com.example.app.demo.service.impl;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.pojo.Neo;
-import com.example.demo.service.HelloService;
+import com.example.app.demo.pojo.Neo;
+import com.example.app.demo.service.HelloService;
 @Service
 public class HelloServiceImpl implements HelloService {
 
 	@Override
-	@Cacheable(value="users")
+	@Cacheable(value="userCache",key="#id")
 	public Neo getNeo(String id) {
 //		Neo n = getData();
 //		return n;
@@ -26,5 +27,10 @@ public class HelloServiceImpl implements HelloService {
 		neo.setTitle("标题");
 		neo.setDescription("描述");
 		return neo;
+	}
+
+	@CacheEvict(value="userCache",key="#id")
+	public String clearCache(String id) {
+		return "清楚缓存成功";
 	}
 }

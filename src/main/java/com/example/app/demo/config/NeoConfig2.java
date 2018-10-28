@@ -1,10 +1,10 @@
-package com.example.demo.config;
+package com.example.app.demo.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.example.demo.pojo.Neo;
+import com.example.app.demo.pojo.Neo;
 
 @Configuration
 public class NeoConfig2 {

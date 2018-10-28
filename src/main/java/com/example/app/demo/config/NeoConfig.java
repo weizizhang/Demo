@@ -1,7 +1,13 @@
-package com.example.demo.pojo;
+package com.example.app.demo.config;
 
-public class Neo {
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class NeoConfig {
+	@Value("${com.neo.title}")
 	private String title;
+	@Value("${com.neo.description}")
 	private String description;
 	public String getTitle() {
 		return title;
