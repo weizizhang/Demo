@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.app.demo.config.NeoConfig;
 import com.example.app.demo.config.NeoConfig2;
+import com.example.app.demo.dao.UserDao;
 import com.example.app.demo.pojo.Neo;
+import com.example.app.demo.pojo.User;
 import com.example.app.demo.service.HelloService;
 
 @RestController
@@ -22,6 +24,9 @@ public class HelloController {
 	@Autowired
 	private HelloService helloService;
 	
+	@Autowired
+	private UserDao userDao;
+	
 	@RequestMapping("/config")
 	public Neo getConfig() {
 		return neoConfig2.getNeo();
@@ -34,5 +39,9 @@ public class HelloController {
 	@RequestMapping("/clearCache")
 	public String clearCache(){
 		return helloService.clearCache("a1");
+	}
+	@RequestMapping("/getUser")
+	public User getUser(String name) {
+		return userDao.findByName(name);
 	}
 }

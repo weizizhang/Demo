@@ -24,4 +24,31 @@ EhCache:
       max-elements-on-disk: 100 #在磁盘上缓存的element的最大数目，默认值为0，表示不限制。
       disk-spool-buffer-size-mB: 30 #DiskStore使用的磁盘大小，默认值30MB。每个cache使用各自的DiskStore。
       disk-expiry-thread-interval-seconds: 120 #对象检测线程运行时间间隔。标识对象状态的线程多长时间运行一次。以秒为单位。默认120 秒  
-  
+
+# 使用druid连接池
+spring:
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        driver-class-name: com.mysql.jdbc.Driver
+        platform: mysql
+        url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
+        username: root
+        password: admin
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: SELECT 1 FROM DUAL
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        filters: stat,wall,log4j
+        logSlowSql: true
+# MyBatis 配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml  # mybatis的mapper.xml文件的路径
+  type-aliases-package: com.example.app.demo.pojo  # mybatis的model所在的包
+
