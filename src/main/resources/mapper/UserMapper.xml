@@ -7,7 +7,15 @@
 
     <!--使用resultType指定输出类型-->
     <select id="findByName" resultType="User">
-        SELECT * FROM user WHERE username = #{name}
+        SELECT 
+         id,
+         username,
+         password,
+         version,
+         create_time as createTime,
+         update_time as updateTime 
+        FROM user 
+        WHERE username = #{name}
     </select>
 
 </mapper>

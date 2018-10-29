@@ -24,9 +24,6 @@ public class HelloController {
 	@Autowired
 	private HelloService helloService;
 	
-	@Autowired
-	private UserDao userDao;
-	
 	@RequestMapping("/config")
 	public Neo getConfig() {
 		return neoConfig2.getNeo();
@@ -39,9 +36,5 @@ public class HelloController {
 	@RequestMapping("/clearCache")
 	public String clearCache(){
 		return helloService.clearCache("a1");
-	}
-	@RequestMapping("/getUser")
-	public User getUser(String name) {
-		return userDao.findByName(name);
 	}
 }

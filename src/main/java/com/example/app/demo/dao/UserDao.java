@@ -8,8 +8,8 @@ import com.example.app.demo.pojo.User;
 
 public interface UserDao {
 	/*xml方式*/
-    User findByName(String name);
+	User findByName(String name);
     /*注解方式*/
-    @Select("select * from user")
-    List<User> findAll();
+	@Select("select * from user")
+	List<User> findAll();
 }
