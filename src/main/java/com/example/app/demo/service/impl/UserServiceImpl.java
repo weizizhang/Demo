@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.example.app.demo.dao.UserDao;
 import com.example.app.demo.pojo.User;
 import com.example.app.demo.service.UserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -19,7 +21,10 @@ public class UserServiceImpl implements UserService {
 	}
 	@Override
 	public List<User> findAll() {
-		return null;
+		PageHelper.startPage(1, 3);
+		List<User> list = userDao.findAll();
+		PageInfo<User> pageInfo = new PageInfo<>(list);
+		return list;
 	}
 
 	
