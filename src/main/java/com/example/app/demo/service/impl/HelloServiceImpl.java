@@ -9,8 +9,9 @@ import com.example.app.demo.service.HelloService;
 @Service
 public class HelloServiceImpl implements HelloService {
 
+	//所有key中的单引号 都不能少，不然会被识别成一个对象
 	@Override
-	@Cacheable(value="userCache",key="#id")
+	@Cacheable(value="userCache",key="'user_'+#id")
 	public Neo getNeo(String id) {
 //		Neo n = getData();
 //		return n;
