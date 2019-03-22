@@ -1,15 +1,14 @@
 package com.example.app.demo.service.impl;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.example.app.demo.dao.UserDao;
 import com.example.app.demo.pojo.User;
 import com.example.app.demo.service.UserService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -27,5 +26,5 @@ public class UserServiceImpl implements UserService {
 		return list;
 	}
 
-	
+
 }

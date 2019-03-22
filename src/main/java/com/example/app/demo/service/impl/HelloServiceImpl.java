@@ -31,6 +31,7 @@ public class HelloServiceImpl implements HelloService {
 	}
 
 	@CacheEvict(value="userCache",key="#id")
+	@Override
 	public String clearCache(String id) {
 		return "清楚缓存成功";
 	}
