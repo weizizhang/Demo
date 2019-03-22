@@ -20,11 +20,13 @@ public class UserServiceImpl implements UserService {
 	}
 	@Override
 	public List<User> findAll() {
+		//分页查询
 		PageHelper.startPage(1, 3);
 		List<User> list = userDao.findAll();
 		PageInfo<User> pageInfo = new PageInfo<>(list);
 		return list;
 	}
+
 
 
 }
