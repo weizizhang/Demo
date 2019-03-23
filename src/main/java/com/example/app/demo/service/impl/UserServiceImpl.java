@@ -26,4 +26,5 @@ public class UserServiceImpl implements UserService {
 		PageInfo<User> pageInfo = new PageInfo<>(list);
 		return list;
 	}
+
 }
