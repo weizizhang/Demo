@@ -14,7 +14,7 @@ import java.util.List;
 public class TreeJson {
     private String id;
     private String name;
-    private String parentid;
-    private List<TreeJson> children = new ArrayList<TreeJson>();
-    private List<TreeJson> parents = new ArrayList<TreeJson>();
+    private String parentId;
+    private List<TreeJson> children = new ArrayList<>();
+    private List<TreeJson> parents = new ArrayList<>();
 }

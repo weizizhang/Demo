@@ -7,9 +7,9 @@ import java.util.Map;
 
 public class RecursiveTreeMap {
     public static List<TreeJson> getTreeMap(List<TreeJson> treeList) {
-        List<TreeJson> parentTreeList = new ArrayList<TreeJson>();
-        List<TreeJson> childrenTreeList = new ArrayList<TreeJson>();
-        Map<String, String> allIdMap = new HashMap<String, String>();
+        List<TreeJson> parentTreeList = new ArrayList<>();
+        List<TreeJson> childrenTreeList = new ArrayList<>();
+        Map<String, String> allIdMap = new HashMap<>();
         if (treeList == null || treeList.size() == 0) {
             return parentTreeList;
         }
@@ -18,7 +18,7 @@ public class RecursiveTreeMap {
         }
         //遍历找出所有的根节点和非根节点
         for (TreeJson tree : treeList) {
-            if ("-1".equals(tree.getParentid()) || !allIdMap.containsKey(tree.getParentid())){
+            if ("-1".equals(tree.getParentId()) || !allIdMap.containsKey(tree.getParentId())){
                 parentTreeList.add(tree);
             }else{
                 childrenTreeList.add(tree);
@@ -37,14 +37,14 @@ public class RecursiveTreeMap {
 
     //递归查询子节点
     public static List<TreeJson> getChildrenTreeList(List<TreeJson> childrenList, String parentId) {
-        List<TreeJson> parentTreeList = new ArrayList<TreeJson>();
-        List<TreeJson> childrenTreeList = new ArrayList<TreeJson>();
+        List<TreeJson> parentTreeList = new ArrayList<>();
+        List<TreeJson> childrenTreeList = new ArrayList<>();
         if (childrenList == null || childrenList.size() == 0) {
             return parentTreeList;
         }
         //找出所有的根节点和非根节点
         for (TreeJson tree : childrenList) {
-            if (parentId.equals(tree.getParentid())) {
+            if (parentId.equals(tree.getParentId())) {
                 parentTreeList.add(tree);
             } else {
                 childrenTreeList.add(tree);
