@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,6 +61,11 @@ public class HelloController {
 	@PostMapping("/post")
 	public String getT(@RequestBody Good g) {
 		return g.getT().toString();
+	}
+	
+	@PostMapping("/p/{title}")
+	public String getPathvari(@PathVariable("title") String title) {
+		return title;
 	}
 	
 //	public static void main(String[] args) {
