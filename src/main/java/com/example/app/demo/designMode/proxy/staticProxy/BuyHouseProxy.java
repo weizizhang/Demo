@@ -1,13 +1,10 @@
 package com.example.app.demo.designMode.proxy.staticProxy;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 public class BuyHouseProxy implements BuyHouse {
 
-	private final BuyHouse buyHouse;
+	private BuyHouse buyHouse;
 
-	@Autowired
-	public BuyHouseProxy(BuyHouse buyHouse) {
+	public BuyHouseProxy(final BuyHouse buyHouse) {
 		this.buyHouse = buyHouse;
 	}
 	
