@@ -40,6 +40,7 @@ public class UserControllerTest {
     public void findByName() throws Exception {
         Gson gson = new Gson();
         Map<String, String> map = new HashMap<>();
+        map.put("name","jack");
 
         mvc.perform(MockMvcRequestBuilders.post("/user/findByName")
                 .accept(MediaType.APPLICATION_JSON_UTF8)

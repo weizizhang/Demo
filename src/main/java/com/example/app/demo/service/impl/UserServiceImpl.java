@@ -8,7 +8,9 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -27,4 +29,25 @@ public class UserServiceImpl implements UserService {
 		return list;
 	}
 
+	@Override
+	public void check() {
+		List<String> list = new ArrayList<>();
+		list.add("1");
+		list.add("12");
+		list.add("123");
+		list.add("1234");
+		list.add("12345");
+		list.add("123456");
+		list.add("1234567");
+		long count = filter(list);
+		System.out.println("-------------------"+count+"---------------------");
+	}
+
+	private long filter(List<String> list){
+		long count = list.stream().filter((p)->(p.indexOf("2")>0)).count();
+		if(count>0){
+			return count;
+		}
+		return 0;
+	}
 }
