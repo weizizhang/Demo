@@ -6,7 +6,7 @@
     <mapper namespace="com.example.app.demo.dao.UserDao">
 
     <!--使用resultType指定输出类型-->
-    <select id="findByName" resultType="User">
+    <select id="findByName" resultType="com.example.app.demo.pojo.User">
         SELECT 
          id,
          username,
@@ -18,4 +18,26 @@
         WHERE username = #{name}
     </select>
 
+    <insert id="batchInsert" parameterType="java.util.List">
+        INSERT INTO USER
+        (
+            id,
+            username,
+            password,
+            version,
+            create_time,
+            update_time
+        )
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+                #{item.id},
+                #{item.username},
+                #{item.password},
+                #{item.version},
+                #{item.createTime},
+                #{item.updateTime}
+            )
+        </foreach>
+    </insert>
 </mapper>
